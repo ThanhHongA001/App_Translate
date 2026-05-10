@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_history"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="@dimen/screen_padding"
+    tools:context=".ui.history.HistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/history_BtnBack"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_card"
+            android:padding="10dp"
+            android:contentDescription="@string/button_back" />
+
+        <TextView
+            android:id="@+id/history_TvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/history"
+            android:gravity="center"
+            style="@style/TextTitle" />
+
+        <ImageButton
+            android:id="@+id/history_BtnClearAll"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/ic_delete"
+            android:background="@drawable/bg_card"
+            android:padding="10dp"
+            android:contentDescription="@string/clear_all_history" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/history_TvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/history_empty"
+        android:gravity="center"
+        android:visibility="gone"
+        style="@style/TextSmall"
+        android:layout_marginTop="40dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_RclList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_history" />
+
+</LinearLayout>

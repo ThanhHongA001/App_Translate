@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp TT2</string>
+
+    <string name="translate">Dịch</string>
+    <string name="history">Lịch sử</string>
+    <string name="evaluation">Đánh giá</string>
+
+    <string name="input_text">Nhập văn bản cần dịch</string>
+    <string name="input_text_hint">Nhập văn bản cần dịch...</string>
+    <string name="result_text">Kết quả dịch</string>
+    <string name="result_text_hint">Bản dịch sẽ hiển thị ở đây...</string>
+
+    <string name="source_language">Ngôn ngữ nguồn</string>
+    <string name="target_language">Ngôn ngữ đích</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="english">English</string>
+    <string name="swap_language">Đổi ngôn ngữ</string>
+
+    <string name="button_translate">Dịch ngay</string>
+    <string name="button_clear">Xóa</string>
+    <string name="button_copy">Sao chép</string>
+    <string name="button_delete">Xóa</string>
+    <string name="button_back">Quay lại</string>
+
+    <string name="history_empty">Chưa có lịch sử dịch</string>
+    <string name="history_detail">Chi tiết lịch sử</string>
+    <string name="delete_history">Xóa lịch sử</string>
+    <string name="clear_all_history">Xóa toàn bộ lịch sử</string>
+
+    <string name="evaluation_title">Đánh giá kết quả dịch</string>
+    <string name="evaluation_hint">Nhập nhận xét của bạn</string>
+    <string name="submit">Gửi đánh giá</string>
+    <string name="evaluation_result">Kết quả đánh giá</string>
+
+    <string name="source">Nguồn</string>
+    <string name="translated_text">Bản dịch</string>
+    <string name="created_at">Thời gian</string>
+
+    <string name="copy_success">Đã sao chép</string>
+    <string name="error_empty_input">Vui lòng nhập văn bản cần dịch</string>
+    <string name="error_translate_failed">Dịch thất bại, vui lòng thử lại</string>
+</resources>
