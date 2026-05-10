@@ -40,4 +40,5 @@
     <string name="copy_success">Đã sao chép</string>
     <string name="error_empty_input">Vui lòng nhập văn bản cần dịch</string>
     <string name="error_translate_failed">Dịch thất bại, vui lòng thử lại</string>
+    <string name="menu">menu\n</string>
 </resources>
