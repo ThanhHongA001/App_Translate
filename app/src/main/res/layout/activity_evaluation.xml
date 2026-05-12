@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_evaluation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
-    android:padding="@dimen/screen_padding"
-    tools:context=".ui.evaluation.EvaluationActivity">
+    android:padding="18dp">
 
     <TextView
-        android:id="@+id/evaluation_TvTile"
+        style="@style/TextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/evaluation_title"
-        android:gravity="center"
-        style="@style/TextTitle"
-        android:layout_marginBottom="18dp" />
+        android:text="Đánh giá bản dịch" />
 
-    <EditText
-        android:id="@+id/evaluation_EditComment"
+    <TextView
+        style="@style/TextSmall"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:gravity="top|start"
-        android:hint="@string/evaluation_hint"
-        android:inputType="textMultiLine"
-        android:padding="14dp"
-        android:background="@drawable/bg_edittext"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Văn bản gốc" />
+
+    <TextView
+        android:id="@+id/evaluation_TvSourceText"
         style="@style/TextBody"
-        android:layout_marginBottom="14dp" />
-
-    <Button
-        android:id="@+id/evaluation_BtnSubmit"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:text="@string/submit"
-        style="@style/ButtonPrimary"
-        android:layout_marginBottom="16dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_card"
+        android:padding="12dp" />
+
+    <TextView
+        style="@style/TextSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Bản dịch" />
+
+    <TextView
+        android:id="@+id/evaluation_TvTranslatedText"
+        style="@style/TextBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_card"
+        android:padding="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/evaluation_RcvResult"
+        android:id="@+id/evaluation_RvResults"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        tools:listitem="@layout/item_evaluation_result" />
+        android:layout_marginTop="14dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
