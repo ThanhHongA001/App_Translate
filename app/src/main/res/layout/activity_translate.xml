@@ -17,36 +17,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:layout_marginBottom="20dp">
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/translate_BtnMenu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_menu"
                 android:background="@drawable/bg_card"
                 android:contentDescription="@string/menu"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:src="@drawable/ic_menu" />
 
             <TextView
                 android:id="@+id/translate_TvTitle"
-                android:layout_weight="1"
+                style="@style/TextTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/translate"
+                android:layout_weight="1"
                 android:gravity="center"
-                style="@style/TextTitle" />
+                android:text="@string/translate" />
 
             <ImageButton
                 android:id="@+id/translate_BtnHistory"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_history"
                 android:background="@drawable/bg_card"
                 android:contentDescription="@string/history"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:src="@drawable/ic_history" />
 
         </LinearLayout>
 
@@ -54,9 +54,9 @@
             android:id="@+id/translate_LanguageContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:layout_marginBottom="16dp">
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/translate_TvSourceLanguage"
@@ -74,9 +74,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/bg_card"
-                android:src="@drawable/ic_swap"
                 android:contentDescription="@string/swap_language"
-                android:padding="12dp" />
+                android:padding="12dp"
+                android:src="@drawable/ic_swap" />
 
             <Spinner
                 android:id="@+id/translate_TvTargetLanguage"
@@ -91,39 +91,42 @@
 
         <EditText
             android:id="@+id/translate_EdtInputText"
+            style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginBottom="14dp"
             android:background="@drawable/bg_edittext"
             android:gravity="top|start"
             android:hint="@string/input_text_hint"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textCapSentences"
             android:minLines="6"
+            android:overScrollMode="always"
             android:padding="14dp"
-            style="@style/TextBody" />
+            android:scrollbars="vertical"
+            android:textCursorDrawable="@null" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/translate_BtnTranslate"
+                style="@style/ButtonPrimary"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="@string/button_translate"
-                style="@style/ButtonPrimary" />
+                android:text="@string/button_translate" />
 
             <Button
                 android:id="@+id/translate_BtnClear"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="10dp"
+                android:background="@drawable/bg_card"
                 android:text="@string/button_clear"
                 android:textColor="@color/primary"
-                android:background="@drawable/bg_card"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -133,35 +136,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/translate_TvResultLabel"
+            style="@style/TextSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/result_text"
             android:layout_marginBottom="8dp"
-            style="@style/TextSubtitle" />
+            android:text="@string/result_text" />
 
         <TextView
             android:id="@+id/translate_TvTranslatedText"
+            style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/bg_result"
             android:gravity="top|start"
             android:padding="14dp"
-            android:text="@string/result_text_hint"
-            style="@style/TextBody" />
+            android:text="@string/result_text_hint" />
 
         <Button
             android:id="@+id/translate_BtnCopy"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:background="@drawable/bg_card"
             android:text="@string/button_copy"
             android:textColor="@color/primary"
-            android:background="@drawable/bg_card"
             android:textStyle="bold" />
 
     </LinearLayout>

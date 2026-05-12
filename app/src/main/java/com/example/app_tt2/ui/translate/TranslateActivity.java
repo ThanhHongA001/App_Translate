@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.app_tt2.R;
 import com.example.app_tt2.ui.evaluation.EvaluationActivity;
 import com.example.app_tt2.ui.history.HistoryActivity;
+import com.example.app_tt2.ui.suggestion.SuggestionPopupController;
 import com.example.app_tt2.utils.Constants;
 import com.example.app_tt2.utils.TextUtils;
 
@@ -48,6 +49,7 @@ public class TranslateActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private TranslateViewModel viewModel;
+    private SuggestionPopupController suggestionPopupController;
 
     private final List<LanguageOption> languageOptions = new ArrayList<>();
 
@@ -63,6 +65,7 @@ public class TranslateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_translate);
 
         initViews();
+        initSuggestions();
         initLanguages();
         initViewModel();
         initEvents();
@@ -87,6 +90,10 @@ public class TranslateActivity extends AppCompatActivity {
         btnHistory = findViewById(R.id.translate_BtnHistory);
 
         progressBar = findViewById(R.id.translate_ProgressBar);
+    }
+
+    private void initSuggestions() {
+        suggestionPopupController = new SuggestionPopupController(edtInputText);
     }
 
     private void initLanguages() {
@@ -174,6 +181,10 @@ public class TranslateActivity extends AppCompatActivity {
             edtInputText.setText(lastTranslatedText);
             edtInputText.setSelection(edtInputText.getText().length());
 
+            if (suggestionPopupController != null) {
+                suggestionPopupController.refresh();
+            }
+
             tvTranslatedText.setText("");
             tvStatus.setText("Đang dịch lại...");
 
@@ -190,6 +201,10 @@ public class TranslateActivity extends AppCompatActivity {
         lastTranslationDuration = 0L;
         lastSourceText = "";
         lastTranslatedText = "";
+
+        if (suggestionPopupController != null) {
+            suggestionPopupController.refresh();
+        }
     }
 
     private void copyTranslatedText() {
@@ -258,6 +273,7 @@ public class TranslateActivity extends AppCompatActivity {
 
         popupMenu.getMenu().add("Lịch sử dịch");
         popupMenu.getMenu().add("Đánh giá bản dịch");
+        popupMenu.getMenu().add("Kiểm tra gợi ý từ");
         popupMenu.getMenu().add("Xóa nội dung");
         popupMenu.getMenu().add("Giới thiệu");
 
@@ -274,6 +290,19 @@ public class TranslateActivity extends AppCompatActivity {
                 return true;
             }
 
+            if (title.equals("Kiểm tra gợi ý từ")) {
+                if (suggestionPopupController != null) {
+                    suggestionPopupController.refresh();
+                }
+
+                Toast.makeText(
+                        this,
+                        "Đã kiểm tra từ nghi sai. Bấm vào từ gạch đỏ để xem gợi ý.",
+                        Toast.LENGTH_SHORT
+                ).show();
+                return true;
+            }
+
             if (title.equals("Xóa nội dung")) {
                 clearTranslateScreen();
                 return true;
@@ -282,7 +311,7 @@ public class TranslateActivity extends AppCompatActivity {
             if (title.equals("Giới thiệu")) {
                 Toast.makeText(
                         this,
-                        "Ứng dụng dịch Anh - Việt có lưu lịch sử dịch và đánh giá bản dịch.",
+                        "Ứng dụng dịch Anh - Việt có lưu lịch sử, đánh giá bản dịch và gợi ý sửa từ nhập sai.",
                         Toast.LENGTH_SHORT
                 ).show();
                 return true;
