@@ -197,39 +197,27 @@ public class TranslateActivity extends AppCompatActivity {
     private void showPopupMenu() {
         PopupMenu popupMenu = new PopupMenu(this, btnMenu);
 
-        popupMenu.getMenu().add(0, 1, 0, "Lịch sử");
-        popupMenu.getMenu().add(0, 2, 1, "Xóa nội dung");
-        popupMenu.getMenu().add(0, 3, 2, "Đổi ngôn ngữ");
-        popupMenu.getMenu().add(0, 4, 3, "Sao chép kết quả");
-        popupMenu.getMenu().add(0, 5, 4, "Thông tin ứng dụng");
+        popupMenu.getMenu().add("Lịch sử dịch");
+        popupMenu.getMenu().add("Xóa nội dung");
+        popupMenu.getMenu().add("Giới thiệu");
 
         popupMenu.setOnMenuItemClickListener(item -> {
-            int id = item.getItemId();
+            String title = item.getTitle().toString();
 
-            if (id == 1) {
+            if (title.equals("Lịch sử dịch")) {
                 openHistoryScreen();
                 return true;
             }
 
-            if (id == 2) {
+            if (title.equals("Xóa nội dung")) {
                 clearTranslateScreen();
                 return true;
             }
 
-            if (id == 3) {
-                swapLanguageAndTranslateAgain();
-                return true;
-            }
-
-            if (id == 4) {
-                btnCopy.performClick();
-                return true;
-            }
-
-            if (id == 5) {
+            if (title.equals("Giới thiệu")) {
                 Toast.makeText(
                         this,
-                        "App Translate v1.0",
+                        "Ứng dụng dịch Anh - Việt có lưu lịch sử dịch.",
                         Toast.LENGTH_SHORT
                 ).show();
                 return true;
