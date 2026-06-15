@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,16 +11,18 @@
     <LinearLayout
         android:id="@+id/activity_translate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/screen_padding">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
                 android:id="@+id/translate_BtnMenu"
@@ -33,7 +36,7 @@
             <TextView
                 android:id="@+id/translate_TvTitle"
                 style="@style/TextTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -55,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -89,54 +93,79 @@
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/translate_EdtInputText"
-            style="@style/TextBody"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/bg_edittext"
-            android:gravity="top|start"
-            android:hint="@string/input_text_hint"
-            android:inputType="textMultiLine|textCapSentences"
-            android:minLines="6"
-            android:overScrollMode="always"
-            android:padding="14dp"
-            android:scrollbars="vertical"
-            android:textCursorDrawable="@null" />
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
+            android:background="@drawable/bg_text"
+            android:padding="5dp">
 
-            <Button
-                android:id="@+id/translate_BtnTranslate"
-                style="@style/ButtonPrimary"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="@string/button_translate" />
+            <EditText
+                android:id="@+id/translate_EdtInputText"
+                style="@style/TextBody"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/bg_edittext"
+                android:gravity="top|start"
+                android:hint="@string/input_text_hint"
+                android:inputType="textMultiLine|textCapSentences"
+                android:minLines="6"
+                android:overScrollMode="always"
+                android:padding="14dp"
+                android:scrollbars="vertical"
+                android:textCursorDrawable="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/translate_BtnOcrImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera"
+                android:background="@color/white_transparent"
+                android:layout_margin="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/translate_EdtInputText" />
+
+            <ImageButton
+                android:id="@+id/translate_BtnSpeakInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_mic"
+                android:background="@color/white_transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/translate_BtnOcrImage"
+                app:layout_constraintTop_toBottomOf="@+id/translate_EdtInputText" />
+
+            <ImageButton
                 android:id="@+id/translate_BtnClear"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/bg_card"
-                android:text="@string/button_clear"
-                android:textColor="@color/primary"
-                android:textStyle="bold" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white_transparent"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/translate_EdtInputText" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/translate_BtnTranslate"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/button_translate" />
 
         <ProgressBar
             android:id="@+id/translate_ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="12dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:indeterminate="true"
             android:visibility="gone" />
 
         <TextView
@@ -144,28 +173,58 @@
             style="@style/TextSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/result_text" />
 
-        <TextView
-            android:id="@+id/translate_TvTranslatedText"
-            style="@style/TextBody"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_result"
-            android:gravity="top|start"
-            android:padding="14dp"
-            android:text="@string/result_text_hint" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text"
+            android:padding="5dp">
 
-        <Button
-            android:id="@+id/translate_BtnCopy"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_card"
-            android:text="@string/button_copy"
-            android:textColor="@color/primary"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/translate_TvTranslatedText"
+                style="@style/TextBody"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/bg_result"
+                android:gravity="top|start"
+                android:padding="14dp"
+                android:text="@string/result_text_hint"
+                android:scrollbars="vertical"
+                android:overScrollMode="always"
+                android:fadeScrollbars="false"
+                android:focusable="true"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/translate_BtnCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white_transparent"
+                android:src="@drawable/ic_copy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/translate_BtnSpeakResult"
+                app:layout_constraintTop_toBottomOf="@+id/translate_TvTranslatedText" />
+
+            <ImageButton
+                android:id="@+id/translate_BtnSpeakResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white_transparent"
+                android:src="@drawable/ic_volume"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/translate_TvTranslatedText" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
