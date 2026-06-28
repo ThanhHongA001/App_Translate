@@ -602,5 +602,3 @@ https://github.com/ThanhHongA001/App_Translate
 ```
 
 Dự án được xây dựng phục vụ học tập và thực hành phát triển ứng dụng Android bằng Java.
-#   T e s t _ N o d e _ S o c k e t  
- 
