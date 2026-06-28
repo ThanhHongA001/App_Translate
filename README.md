@@ -519,3 +519,5 @@ https://github.com/ThanhHongA001/App_TT2
 ```
 
 Dự án được xây dựng phục vụ học tập và thực hành phát triển ứng dụng Android bằng Java.
+#   A p p _ T r a n s l a t e  
+ 
