@@ -20,10 +20,10 @@ public class MatchDto {
     private String target;
 
     @SerializedName("quality")
-    private int quality;
+    private String quality;
 
     @SerializedName("match")
-    private double match;
+    private String match;
 
     public String getId() {
         return id;
@@ -45,11 +45,24 @@ public class MatchDto {
         return target;
     }
 
-    public int getQuality() {
+    public String getQuality() {
         return quality;
     }
 
-    public double getMatch() {
+    public String getMatch() {
         return match;
+    }
+
+    public double getMatchScore() {
+        if (match == null) {
+            return 0.0;
+        }
+
+        try {
+            double value = Double.parseDouble(match.trim());
+            return value > 1.0 ? value / 100.0 : value;
+        } catch (NumberFormatException exception) {
+            return 0.0;
+        }
     }
 }

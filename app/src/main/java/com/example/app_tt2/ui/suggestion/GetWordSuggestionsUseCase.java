@@ -37,7 +37,7 @@ public class GetWordSuggestionsUseCase {
             return result;
         }
 
-        List<String> allWords = dictionary.getAllWords();
+        List<String> allWords = new ArrayList<>(dictionary.getAllWords());
 
         for (String candidate : allWords) {
             int distance = calculateLevenshteinDistance(

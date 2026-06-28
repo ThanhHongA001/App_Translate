@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">App TT2</string>
+    <string name="app_name">App Translate</string>
 
     <string name="translate">Dịch</string>
     <string name="history">Lịch sử</string>

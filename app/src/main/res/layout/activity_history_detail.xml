@@ -31,12 +31,12 @@
 
             <TextView
                 android:id="@+id/history_detail_TvTitle"
+                style="@style/TextSubtitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/history_detail"
                 android:gravity="center"
-                style="@style/TextSubtitle" />
+                android:text="@string/history_detail" />
 
             <ImageButton
                 android:id="@+id/history_detail_BtnDelete"

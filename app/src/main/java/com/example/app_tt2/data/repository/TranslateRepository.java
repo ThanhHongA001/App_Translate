@@ -4,9 +4,5 @@ import com.example.app_tt2.domain.model.TranslationResult;
 
 public interface TranslateRepository {
 
-    TranslationResult translateText(
-            String text,
-            String sourceLang,
-            String targetLang
-    ) throws Exception;
+    TranslationResult translate(String sourceText, String sourceLanguage, String targetLanguage);
 }

@@ -10,19 +10,19 @@ public class TranslateResponseDto {
     private ResponseDataDto responseData;
 
     @SerializedName("quotaFinished")
-    private boolean quotaFinished;
-
-    @SerializedName("mtLangSupported")
-    private String mtLangSupported;
+    private Boolean quotaFinished;
 
     @SerializedName("responseDetails")
     private String responseDetails;
 
     @SerializedName("responseStatus")
-    private int responseStatus;
+    private Integer responseStatus;
 
     @SerializedName("responderId")
     private String responderId;
+
+    @SerializedName("exception_code")
+    private String exceptionCode;
 
     @SerializedName("matches")
     private List<MatchDto> matches;
@@ -31,19 +31,15 @@ public class TranslateResponseDto {
         return responseData;
     }
 
-    public boolean isQuotaFinished() {
+    public Boolean getQuotaFinished() {
         return quotaFinished;
-    }
-
-    public String getMtLangSupported() {
-        return mtLangSupported;
     }
 
     public String getResponseDetails() {
         return responseDetails;
     }
 
-    public int getResponseStatus() {
+    public Integer getResponseStatus() {
         return responseStatus;
     }
 
@@ -51,7 +47,15 @@ public class TranslateResponseDto {
         return responderId;
     }
 
+    public String getExceptionCode() {
+        return exceptionCode;
+    }
+
     public List<MatchDto> getMatches() {
         return matches;
+    }
+
+    public boolean isSuccess() {
+        return responseStatus == null || responseStatus == 200;
     }
 }

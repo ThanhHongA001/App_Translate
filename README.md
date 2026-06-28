@@ -1,6 +1,6 @@
-# App_TT2
+# App_Translate
 
-App_TT2 là ứng dụng Android hỗ trợ dịch văn bản Anh - Việt, lưu lịch sử dịch, đánh giá chất lượng bản dịch, nhận dạng chữ từ ảnh, nhập văn bản bằng giọng nói, đọc kết quả dịch và gợi ý sửa từ nhập sai.
+App_Translate là ứng dụng Android hỗ trợ dịch văn bản Anh - Việt, lưu lịch sử dịch, đánh giá chất lượng bản dịch, nhận dạng chữ từ ảnh, nhập văn bản bằng giọng nói, đọc kết quả dịch và gợi ý sửa từ nhập sai.
 
 Dự án được xây dựng bằng Java trên Android, tổ chức theo hướng phân lớp rõ ràng giữa giao diện, xử lý nghiệp vụ, repository, API remote và cơ sở dữ liệu local.
 

@@ -11,6 +11,7 @@ public interface TranslateApiService {
     @GET("get")
     Call<TranslateResponseDto> translate(
             @Query("q") String text,
-            @Query("langpair") String langPair
+            @Query("langpair") String langPair,
+            @Query("mt") int machineTranslation
     );
 }
